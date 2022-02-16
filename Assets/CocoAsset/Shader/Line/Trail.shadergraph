@@ -471,35 +471,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.Rendering.HighDefinition.ShaderGraph.StackLitData",
-    "m_ObjectId": "002a9dcb018c42f18d124a145e6aa2c2",
-    "m_BaseParametrization": 0,
-    "m_DualSpecularLobeParametrization": 0,
-    "m_Anisotropy": false,
-    "m_Coat": false,
-    "m_CoatNormal": false,
-    "m_DualSpecularLobe": false,
-    "m_CapHazinessWrtMetallic": true,
-    "m_Iridescence": false,
-    "m_ScreenSpaceSpecularOcclusionBaseMode": 1,
-    "m_DataBasedSpecularOcclusionBaseMode": 0,
-    "m_ScreenSpaceSpecularOcclusionAOConeSize": 0,
-    "m_ScreenSpaceSpecularOcclusionAOConeDir": 0,
-    "m_DataBasedSpecularOcclusionAOConeSize": 2,
-    "m_SpecularOcclusionConeFixupMethod": 0,
-    "m_AnisotropyForAreaLights": true,
-    "m_RecomputeStackPerLight": false,
-    "m_HonorPerLightMinRoughness": false,
-    "m_ShadeBaseUsingRefractedAngles": false,
-    "m_Debug": false,
-    "m_DevMode": false,
-    "m_EnergyConservingSpecular": true,
-    "m_Transmission": false,
-    "m_SubsurfaceScattering": false
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "05802f3bea344d6a9211a30b2b4d1645",
     "m_Id": 1,
@@ -2753,10 +2724,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1028.9998779296875,
-            "y": 141.99998474121095,
+            "x": -1027.0,
+            "y": 142.0,
             "width": 208.0,
-            "height": 302.0
+            "height": 302.0000305175781
         }
     },
     "m_Slots": [
@@ -3144,9 +3115,6 @@
         },
         {
             "m_Id": "bc7095d50347471ea4b3e53277840818"
-        },
-        {
-            "m_Id": "002a9dcb018c42f18d124a145e6aa2c2"
         },
         {
             "m_Id": "70c4543a048a4e0ba9cbd95e1048cb62"

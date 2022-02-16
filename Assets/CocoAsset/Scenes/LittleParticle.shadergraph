@@ -1062,9 +1062,6 @@
         },
         {
             "m_Id": "c77dbf1726f34c24a1a4975d0956e486"
-        },
-        {
-            "m_Id": "d21c3cfaf7b94001b1cf3264b6c95c54"
         }
     ],
     "m_CustomEditorGUI": "",
@@ -1603,20 +1600,6 @@
     "m_Property": {
         "m_Id": "4b468c7782dd4f779de143a2291d5897"
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.Rendering.HighDefinition.ShaderGraph.LightingData",
-    "m_ObjectId": "d21c3cfaf7b94001b1cf3264b6c95c54",
-    "m_NormalDropOffSpace": 0,
-    "m_BlendPreserveSpecular": true,
-    "m_ReceiveDecals": true,
-    "m_ReceiveSSR": true,
-    "m_ReceiveSSRTransparent": false,
-    "m_SpecularAA": false,
-    "m_SpecularOcclusionMode": 1,
-    "m_OverrideBakedGI": false
 }
 
 {
