@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f077503be6ae942a1e1245dbd53ea9, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   quality:
     m_OverrideState: 1
     m_Value: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
     m_Value: 0
   tint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.69684356, b: 0.57924527, a: 1}
+    m_Value: {r: 0.5803922, g: 0.67455, b: 1, a: 1}
   dirtTexture:
     m_OverrideState: 1
     m_Value: {fileID: 0}
@@ -140,13 +140,13 @@ MonoBehaviour:
     m_Value: 0
   top:
     m_OverrideState: 1
-    m_Value: {r: 0.8301887, g: 0.74488044, b: 0.6453542, a: 1}
+    m_Value: {r: 0.64705884, g: 0.7661418, b: 0.83137256, a: 1}
   middle:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.63075733, b: 0.43965724, a: 1}
+    m_Value: {r: 0.43921566, g: 0.6547918, b: 1, a: 1}
   bottom:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.8069525, b: 0.5840786, a: 1}
+    m_Value: {r: 0.58431375, g: 0.7023502, b: 1, a: 1}
   gradientDiffusion:
     m_OverrideState: 1
     m_Value: 1
@@ -204,7 +204,7 @@ MonoBehaviour:
     m_Value: 1
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 0.8679245, g: 0.551869, b: 0.551869, a: 1}
+    m_Value: {r: 0.5529412, g: 0.6629756, b: 0.8666667, a: 1}
   globalLightProbeDimmer:
     m_OverrideState: 1
     m_Value: 1
