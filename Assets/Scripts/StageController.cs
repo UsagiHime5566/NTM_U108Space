@@ -16,6 +16,9 @@ public class StageController : HimeLib.SingletonMono<StageController>
     public float fadeTime = 0.7f;
     public float LoadingBuffTime = 1;
 
+    public bool AutoPlay;
+    public float AutoPlayDelay = 30;
+
     public string Scene_1;
     public string Scene_2;
     public string Scene_3;
@@ -27,52 +30,72 @@ public class StageController : HimeLib.SingletonMono<StageController>
     public string Scene_9;
     public string Scene_10;
 
+    
+
     void Start()
     {
-        
+        if(AutoPlay)
+            StartCoroutine(DoAutoPlay());
     }
 
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F1)){
+        if(Input.GetKeyDown(KeyCode.Alpha1)){
             GoStage(Scene_1);
         }
 
-        if(Input.GetKeyDown(KeyCode.F2)){
+        if(Input.GetKeyDown(KeyCode.Alpha2)){
             GoStage(Scene_2);
         }
 
-        if(Input.GetKeyDown(KeyCode.F3)){
+        if(Input.GetKeyDown(KeyCode.Alpha3)){
             GoStage(Scene_3);
         }
 
-        if(Input.GetKeyDown(KeyCode.F4)){
+        if(Input.GetKeyDown(KeyCode.Alpha4)){
             GoStage(Scene_4);
         }
 
-        if(Input.GetKeyDown(KeyCode.F5)){
+        if(Input.GetKeyDown(KeyCode.Alpha5)){
             GoStage(Scene_5);
         }
 
-        if(Input.GetKeyDown(KeyCode.F6)){
+        if(Input.GetKeyDown(KeyCode.Alpha6)){
             GoStage(Scene_6);
         }
 
-        if(Input.GetKeyDown(KeyCode.F7)){
+        if(Input.GetKeyDown(KeyCode.Alpha7)){
             GoStage(Scene_7);
         }
 
-        if(Input.GetKeyDown(KeyCode.F8)){
+        if(Input.GetKeyDown(KeyCode.Alpha8)){
             GoStage(Scene_8);
         }
 
-        if(Input.GetKeyDown(KeyCode.F9)){
+        if(Input.GetKeyDown(KeyCode.Alpha9)){
             GoStage(Scene_9);
         }
 
-        if(Input.GetKeyDown(KeyCode.F10)){
+        if(Input.GetKeyDown(KeyCode.Alpha0)){
             GoStage(Scene_10);
+        }
+    }
+
+    IEnumerator DoAutoPlay(){
+        List<string> SceneList = new List<string>(){Scene_1, Scene_2, Scene_3, Scene_4, Scene_5, Scene_6, Scene_7, Scene_8, Scene_9, Scene_10 };
+        int SceneIndex = 0;
+
+        yield return new WaitForSeconds(5);
+
+        while(true){
+            if(Application.CanStreamedLevelBeLoaded(SceneList[SceneIndex])){
+                GoStage(SceneList[SceneIndex]);
+                yield return new WaitForSeconds(AutoPlayDelay);
+            }
+                
+            yield return null;
+            SceneIndex = ( SceneIndex + 1 ) % SceneList.Count;
         }
     }
 
