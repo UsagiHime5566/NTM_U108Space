@@ -11,14 +11,18 @@ public class StageController : HimeLib.SingletonMono<StageController>
     protected internal override void OnSingletonAwake(){
         MarkAsCrossSceneSingleton();
     }
-
+    
+    [Header("System Params")]
+    public AudioSource sceneBGM;
     public CanvasGroup toFadeGroup;
     public float fadeTime = 0.7f;
     public float LoadingBuffTime = 1;
 
+    [Header("Auto Mode")]
     public bool AutoPlay;
     public float AutoPlayDelay = 30;
 
+    [Header("Scene Params")]
     public string Scene_1;
     public string Scene_2;
     public string Scene_3;
@@ -80,6 +84,10 @@ public class StageController : HimeLib.SingletonMono<StageController>
         if(Input.GetKeyDown(KeyCode.Alpha0)){
             GoStage(Scene_10);
         }
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+            sceneBGM.Play();
+        }
     }
 
     IEnumerator DoAutoPlay(){
@@ -87,6 +95,8 @@ public class StageController : HimeLib.SingletonMono<StageController>
         int SceneIndex = 0;
 
         yield return new WaitForSeconds(5);
+
+        sceneBGM.Play();
 
         while(true){
             if(Application.CanStreamedLevelBeLoaded(SceneList[SceneIndex])){
