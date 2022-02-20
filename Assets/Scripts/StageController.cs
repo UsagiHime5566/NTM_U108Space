@@ -88,6 +88,10 @@ public class StageController : HimeLib.SingletonMono<StageController>
         if(Input.GetKeyDown(KeyCode.Space)){
             sceneBGM.Play();
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            Application.Quit();
+        }
     }
 
     IEnumerator DoAutoPlay(){
