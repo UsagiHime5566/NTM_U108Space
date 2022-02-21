@@ -163,8 +163,8 @@ public class StageController : HimeLib.SingletonMono<StageController>
             SceneIndex = i;
             GoStage(stage_names[SceneIndex]);
             
-            Debug.Log($"Play Stage in {stage_times[SceneIndex]/25} seconds.");
-            yield return new WaitForSeconds(stage_times[SceneIndex]/25);
+            Debug.Log($"Play Stage in {stage_times[SceneIndex]} seconds.");
+            yield return new WaitForSeconds(stage_times[SceneIndex]);
         }
 
         float endTime = Time.realtimeSinceStartup;
