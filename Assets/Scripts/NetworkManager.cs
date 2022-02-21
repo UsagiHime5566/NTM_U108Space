@@ -29,6 +29,10 @@ public class NetworkManager : HimeLib.SingletonMono<NetworkManager>
         return serverURL + api_get_Video + "/" + fileID;
     }
 
+    public void API_GetURL(string url, System.Action<string> callback){
+        StartCoroutine(HttpGetFile(url, callback));
+    }
+
     public IEnumerator HttpPostJSON(string url, string json, System.Action<string> callback)
     {
         // 這個方法會把json裡的文字編碼成url code , 例如 { 變成 %7B
@@ -81,6 +85,26 @@ public class NetworkManager : HimeLib.SingletonMono<NetworkManager>
             Debug.Log(www.error);
         } else {
             Debug.Log("Form upload complete! >> :" + www.downloadHandler.text);
+        }
+    }
+
+    public IEnumerator HttpGetFile(string url, System.Action<string> callback){
+        if(string.IsNullOrEmpty(url)){
+            Debug.LogError($"Post file param Error. {url}");
+            yield break;
+        }
+
+        var request = new UnityWebRequest(url, "GET");
+        request.downloadHandler = (DownloadHandler) new DownloadHandlerBuffer();
+
+        yield return request.SendWebRequest();
+
+        if (request.isNetworkError || request.isHttpError){
+            Debug.Log("Network error has occured: " + request.GetResponseHeader(""));
+        } else {
+            Debug.Log("Success: " + request.downloadHandler.text);
+            
+            callback?.Invoke(request.downloadHandler.text);
         }
     }
 
