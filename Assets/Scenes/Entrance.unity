@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.3369, g: 325.0498, b: 430.21924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -274,6 +274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 227500484}
+  - component: {fileID: 227500486}
   - component: {fileID: 227500485}
   m_Layer: 0
   m_Name: AudioBGM
@@ -393,6 +394,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &227500486
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227500483}
+  m_Enabled: 1
 --- !u!1 &292779303
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +458,7 @@ MonoBehaviour:
   LoadingBuffTime: 1
   AutoPlay: 1
   AutoPlayDelay: 30
+  Scene_0: S_0
   Scene_1: S_1
   Scene_2: S_2
   Scene_3: S_3
@@ -459,6 +469,18 @@ MonoBehaviour:
   Scene_8: S_8
   Scene_9: S_9
   Scene_10: S_10
+  stage_names: []
+  stage_times:
+  - 262
+  - 93
+  - 107
+  - 54
+  - 139
+  - 162
+  - 72
+  - 136
+  - 129
+  - 46
 --- !u!114 &292779306
 MonoBehaviour:
   m_ObjectHideFlags: 0

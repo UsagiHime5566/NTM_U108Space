@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -7832,6 +7832,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366298981}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &383047946
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3394014018338061660, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_Name
+      value: Display Rect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394014018338061661, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394014018338061661, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394014018338061661, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394014018338061661, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -50000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394014018338061661, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394014018338061661, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394014018338061661, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394014018338061661, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394014018338061661, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394014018338061661, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394014018338061661, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+--- !u!1 &383047947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1309235972033633097, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+  m_PrefabInstance: {fileID: 383047946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &383047948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383047947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29cf0328edf042c4b8e10c22f2823c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spanTime: 60
 --- !u!1 &385422654
 GameObject:
   m_ObjectHideFlags: 0
@@ -40634,7 +40709,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2095406459}
   - component: {fileID: 2095406458}
-  - component: {fileID: 2095406457}
   - component: {fileID: 2095406456}
   - component: {fileID: 2095406455}
   m_Layer: 0
@@ -40808,14 +40882,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   rotationLerpTime: 0.01
   invertY: 0
---- !u!81 &2095406457
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095406454}
-  m_Enabled: 1
 --- !u!20 &2095406458
 Camera:
   m_ObjectHideFlags: 0
@@ -40849,8 +40915,8 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetTexture: {fileID: 8400000, guid: 9eea2b32cadaa10418256406bc5309f0, type: 2}
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 0

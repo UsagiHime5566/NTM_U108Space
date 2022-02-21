@@ -23,6 +23,7 @@ public class StageController : HimeLib.SingletonMono<StageController>
     public float AutoPlayDelay = 30;
 
     [Header("Scene Params")]
+    public string Scene_0;
     public string Scene_1;
     public string Scene_2;
     public string Scene_3;
@@ -33,18 +34,37 @@ public class StageController : HimeLib.SingletonMono<StageController>
     public string Scene_8;
     public string Scene_9;
     public string Scene_10;
+    public List<string> stage_names;
+    public List<float> stage_times;
 
     
+    //local params
+    bool isStagePlay = false;
 
     void Start()
     {
-        if(AutoPlay)
+        if(AutoPlay){
             StartCoroutine(DoAutoPlay());
+        } else {
+            StartCoroutine(EnterScene_0());
+        }
+    }
+
+    void FindAudioListener(){
+        AudioListener[] myListeners = FindObjectsOfType(typeof(AudioListener)) as AudioListener[];
+        foreach (var item in myListeners)
+        {
+            Debug.Log(item.gameObject.name);
+        }
     }
 
     
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.A)){
+            FindAudioListener();
+        }
+        
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             GoStage(Scene_1);
         }
@@ -86,7 +106,7 @@ public class StageController : HimeLib.SingletonMono<StageController>
         }
 
         if(Input.GetKeyDown(KeyCode.Space)){
-            sceneBGM.Play();
+            StartStagePlay();
         }
 
         if(Input.GetKeyDown(KeyCode.Escape)){
@@ -111,6 +131,43 @@ public class StageController : HimeLib.SingletonMono<StageController>
             yield return null;
             SceneIndex = ( SceneIndex + 1 ) % SceneList.Count;
         }
+    }
+
+    IEnumerator EnterScene_0(){
+        isStagePlay = true;
+        yield return new WaitForSeconds(3);
+        yield return SceneManager.LoadSceneAsync(Scene_0);
+        yield return null;
+        isStagePlay = false;
+
+        Debug.Log("Ready to Play Stages");
+    }
+
+    void StartStagePlay(){
+        if(isStagePlay)
+            return;
+
+        
+        stage_names = new List<string>(){Scene_1, Scene_2, Scene_3, Scene_4, Scene_5, Scene_6, Scene_7, Scene_8, Scene_9, Scene_10 };
+        isStagePlay = true;
+        StartCoroutine(DoStagePlay());
+    }
+
+    IEnumerator DoStagePlay(){
+        int SceneIndex = 0;
+        sceneBGM.Play();
+
+        yield return null;
+    }
+
+    [ContextMenu("Calcu total")]
+    void CalcuTotalTime(){
+        float total = 0;
+        foreach (var item in stage_times)
+        {
+            total += item;
+        }
+        Debug.Log(total);
     }
 
     async void GoStage(string sceneName){
