@@ -24,8 +24,14 @@ public class PunChatReciever : MonoBehaviour
         var temp = Instantiate(Prefab_txt, parentText);
         temp.text = msg;
 
-        temp.rectTransform.DOAnchorPos(new Vector2(msg_b_begin, Random.Range(msg_y_min, msg_y_max)), msg_liveTime).OnComplete(() => {
+        temp.rectTransform.anchoredPosition = new Vector2(msg_b_begin, Random.Range(msg_y_min, msg_y_max));
+        temp.rectTransform.DOAnchorPos(new Vector2(-msg_b_begin, temp.rectTransform.anchoredPosition.y), msg_liveTime).OnComplete(() => {
             Destroy(temp.gameObject, 3);
         });
+    }
+
+    [ContextMenu("Test Msg")]
+    void TestMsgPUN(){
+        PunChatManager.instance.SendMessagePUN("Qoo");
     }
 }

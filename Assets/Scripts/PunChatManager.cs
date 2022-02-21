@@ -113,7 +113,7 @@ public class PunChatManager : MonoBehaviour, IChatClientListener
         for (int i = 0; i < senders.Length; i++)
         {
             OnNewMessageComing?.Invoke($"{senders[i]} : {messages[i]}");
-            Debug.Log("rec msg");
+            //Debug.Log("rec msg");
         }
     }
 
