@@ -64,7 +64,7 @@ public class StageController : HimeLib.SingletonMono<StageController>
         if(Input.GetKeyDown(KeyCode.A)){
             FindAudioListener();
         }
-        
+
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             GoStage(Scene_1);
         }
@@ -146,7 +146,6 @@ public class StageController : HimeLib.SingletonMono<StageController>
     void StartStagePlay(){
         if(isStagePlay)
             return;
-
         
         stage_names = new List<string>(){Scene_1, Scene_2, Scene_3, Scene_4, Scene_5, Scene_6, Scene_7, Scene_8, Scene_9, Scene_10 };
         isStagePlay = true;
@@ -155,9 +154,26 @@ public class StageController : HimeLib.SingletonMono<StageController>
 
     IEnumerator DoStagePlay(){
         int SceneIndex = 0;
-        sceneBGM.Play();
-
         yield return null;
+        sceneBGM.Play();
+        float playTime = Time.realtimeSinceStartup;
+
+        for (int i = 0; i < stage_names.Count; i++)
+        {
+            SceneIndex = i;
+            GoStage(stage_names[SceneIndex]);
+            
+            Debug.Log($"Play Stage in {stage_times[SceneIndex]/25} seconds.");
+            yield return new WaitForSeconds(stage_times[SceneIndex]/25);
+        }
+
+        float endTime = Time.realtimeSinceStartup;
+
+        Debug.Log($"Total play seceonds : {endTime - playTime}");
+
+        GoStage(Scene_0);
+        yield return new WaitForSeconds(3);
+        isStagePlay = false;
     }
 
     [ContextMenu("Calcu total")]

@@ -312,7 +312,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
   toFadeGroup: {fileID: 1873242327}
   fadeTime: 0.7
   LoadingBuffTime: 1
-  AutoPlay: 1
+  AutoPlay: 0
   AutoPlayDelay: 30
   Scene_0: S_0
   Scene_1: S_1
