@@ -70,9 +70,9 @@ MonoBehaviour:
   m_UVRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: -0.1
     width: 1
-    height: 1
+    height: 1.2
 --- !u!1 &4593914434088318963
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,9 +143,9 @@ MonoBehaviour:
   m_UVRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: -0.1
     width: 1
-    height: 1
+    height: 1.2
 --- !u!1 &4593914435149409112
 GameObject:
   m_ObjectHideFlags: 0
