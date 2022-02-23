@@ -25,6 +25,7 @@ public class Controller_S6 : MonoBehaviour
     public float CreateDelay = 3;
 
 
+    public float moveSpeed = 1;
 
     public List<RandomHuman> randomHumans;
     void Start()
@@ -64,9 +65,30 @@ public class Controller_S6 : MonoBehaviour
         }
 
         var temp = Instantiate(Prefab_Human, pos, face);
-        temp.transform.DOLocalMoveX(-pos.x, moveTime).OnComplete(() => {
-            Destroy(temp.gameObject, 3);
+        
+        // temp.transform.DOLocalMoveX(-pos.x, moveTime).OnComplete(() => {
+        //     Destroy(temp.gameObject, 3);
+        // });
+
+        float moveTime = Random.Range(1, 15);
+        Sequence seq = DOTween.Sequence();
+        seq.Append(temp.transform.DOScale(Vector3.one, moveTime).OnUpdate(() => {
+            temp.transform.Translate(-pos.x * moveSpeed * Time.deltaTime, 0, 0, Space.World);
+        }).OnComplete(() => {
+            temp.transform.rotation = Quaternion.Euler(0, 0, 0);
+            temp.GetComponent<Animator>().SetTrigger("Stand");
+        }));
+        seq.AppendInterval(5);
+        seq.AppendCallback(() => {
+            temp.transform.rotation = face;
+            temp.GetComponent<Animator>().SetTrigger("Move");
         });
+        seq.Append(temp.transform.DOScale(Vector3.one, 20).OnUpdate(() => {
+            temp.transform.Translate(-pos.x * moveSpeed * Time.deltaTime, 0, 0, Space.World);
+        }).OnComplete(() => {
+            Destroy(temp.gameObject, 3);
+        }));
+
 
         randomHumans.Add(temp);
     }
