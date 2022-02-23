@@ -70,7 +70,7 @@ public class Controller_S6 : MonoBehaviour
         //     Destroy(temp.gameObject, 3);
         // });
 
-        float moveTime = Random.Range(1, 15);
+        float moveTime = Random.Range(1, 30);
         Sequence seq = DOTween.Sequence();
         seq.Append(temp.transform.DOScale(Vector3.one, moveTime).OnUpdate(() => {
             temp.transform.Translate(-pos.x * moveSpeed * Time.deltaTime, 0, 0, Space.World);
@@ -83,7 +83,7 @@ public class Controller_S6 : MonoBehaviour
             temp.transform.rotation = face;
             temp.GetComponent<Animator>().SetTrigger("Move");
         });
-        seq.Append(temp.transform.DOScale(Vector3.one, 20).OnUpdate(() => {
+        seq.Append(temp.transform.DOScale(Vector3.one, 50).OnUpdate(() => {
             temp.transform.Translate(-pos.x * moveSpeed * Time.deltaTime, 0, 0, Space.World);
         }).OnComplete(() => {
             Destroy(temp.gameObject, 3);
