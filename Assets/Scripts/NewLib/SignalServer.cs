@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-public class SignalServer : HimeLib.SingletonMono<SignalServer>
+public class SignalServer : MonoBehaviour
 {
     public int serverPort = 25568;
     public int recvBufferSize = 1024;
@@ -31,6 +31,8 @@ public class SignalServer : HimeLib.SingletonMono<SignalServer>
     string [] token;
     Thread connectThread; //連接線程
     Action ActionQueue;
+
+    string buffString;
 
     async void Start()
     {
@@ -106,20 +108,31 @@ public class SignalServer : HimeLib.SingletonMono<SignalServer>
                 };
 
             } else {
-
+                
+                if(ActionQueue != null)
+                    continue;
 
                 string recvStr = Encoding.UTF8.GetString(recvData, 0, recvLen);
 
                 //Recieve Data Will Be   245,135,90[/TCP]   , str 不會包含[/TCP]
-                string[] substrings = recvStr.Split(token, StringSplitOptions.None);  // => N , [/TCP]
+                //Debug.Log(recvStr);
 
-                if (substrings.Length > 1)
-                {
-                    Debug.Log($"Server TCP >> Recieved : {substrings[0]}");
-
-                    ActionQueue += delegate {
-                        OnSignalReceived.Invoke(substrings[0]);
-                    };
+                if(recvStr.Contains(EndToken)){
+                    string[] substrings = recvStr.Split(token, StringSplitOptions.None);  // => N , [/TCP]
+                    // if (substrings.Length > 1)
+                    // {
+                    //     Debug.Log($"Server TCP >> Recieved : {substrings[0]}");
+                        
+                    // }
+                    //Debug.Log(substrings[0]);
+                    buffString += substrings[0];
+                    //Debug.Log(buffString);
+                        ActionQueue += delegate {
+                            OnSignalReceived?.Invoke(buffString);
+                            buffString = "";
+                        };
+                } else {
+                    buffString += recvStr;
                 }
             }
         }

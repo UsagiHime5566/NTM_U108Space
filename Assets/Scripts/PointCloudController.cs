@@ -20,7 +20,71 @@ public class PointCloudController : MonoBehaviour
     {
         InitMesh();
 
-        sourceServer.OnSignalReceivedByte += SaveFile;
+        sourceServer.OnSignalReceived.AddListener(ParseOnlineData);
+    }
+
+    void ParseOnlineData(string data){
+        try {
+            string[] points = data.Split("|");
+
+            Debug.Log($"data count : {points.Length}");
+
+            List<Vector3> pList = new List<Vector3>();
+            foreach (var point in points)
+            {
+                string[] v3 = point.Split(",");
+
+                float x = 0;
+                float.TryParse(v3[0], out x);
+                float y = 0;
+                float.TryParse(v3[1], out y);
+                float z = 0;
+                float.TryParse(v3[2], out z);
+
+                pList.Add(new Vector3(x,y,z));
+            }
+
+            CreateSinglePoint(pList);
+        } catch {}
+
+        //Debug.Log($"Data come {data}");
+    }
+
+    void CreateSinglePoint(List<Vector3> v3){
+        float amp = 0.001f;
+        
+        for (int i = 0; i < num; i++)
+        {
+            try {
+                if(i < v3.Count){
+                    vertices[i].x = v3[i].x * amp;
+                    vertices[i].y = v3[i].y * amp;
+                    vertices[i].z = v3[i].z * amp;
+                } else {
+                    vertices[i].x = 0;
+                    vertices[i].y = 0;
+                    vertices[i].z = 0;
+                }
+
+                colors[i].b = 255;
+                colors[i].g = 0;
+                colors[i].r = 0;
+                colors[i].a = 255;
+
+                // colors[i].b = (byte)Random.Range(0, 255);
+                // colors[i].g = (byte)Random.Range(0, 255);
+                // colors[i].r = (byte)Random.Range(0, 255);
+                // colors[i].a = (byte)Random.Range(0, 255);
+            }
+            catch(System.Exception e){
+                Debug.LogWarning(e.Message.ToString());
+                break;
+            }
+        }
+
+        mesh.vertices = vertices;
+        mesh.colors32 = colors;
+        mesh.RecalculateBounds();
     }
 
     void InitMesh()

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 31794828}
   - component: {fileID: 31794829}
   m_Layer: 0
-  m_Name: Server
+  m_Name: Server Recv Kinect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,15 +167,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df9692d28300814381469020043f4cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverPort: 25568
-  recvBufferSize: 1024
+  serverPort: 25566
+  recvBufferSize: 99999999
   EndToken: '[/TCP]'
   tip: "\u6240\u6709\u7684\u8A0A\u606F\u63A5\u7DE8\u78BC\u70BAUTF-8"
   OnSignalReceived:
     m_PersistentCalls:
       m_Calls: []
   runInStart: 0
-  useBytes: 0
+  useBytes: 1
   signalForRecieved: 
   signalForSend: 
 --- !u!1 &119169100

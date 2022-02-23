@@ -508,7 +508,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -533,13 +533,75 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564729500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 15, y: -3.2, z: -2.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &787058666
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7053847811300158061, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053847811300158061, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053847811300158061, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053847811300158061, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053847811300158061, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053847811300158061, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053847811300158061, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053847811300158061, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053847811300158061, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053847811300158061, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053847811300158061, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107621624357211048, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_Name
+      value: Kinect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+--- !u!4 &1361301250 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 35917138693180812, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+  m_PrefabInstance: {fileID: 787058666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1382326803
 GameObject:
   m_ObjectHideFlags: 0
@@ -5386,7 +5448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Property:
     m_Name: Transform
-  Target: {fileID: 1914314088}
+  Target: {fileID: 1361301250}
 --- !u!114 &1679503733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5464,13 +5526,13 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -0, y: 0, z: 0}
+      - m_Value: {x: -0, y: -0, z: 180}
         m_Name: Transform_angles
         m_Overridden: 1
-      - m_Value: {x: 0, y: 1.38, z: 0}
+      - m_Value: {x: 0, y: 0, z: 0}
         m_Name: Transform_position
         m_Overridden: 1
-      - m_Value: {x: 1, y: 1, z: 1}
+      - m_Value: {x: -1, y: 1, z: 1}
         m_Name: Transform_scale
         m_Overridden: 1
     m_Vector4f:
@@ -5543,7 +5605,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914314084}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
