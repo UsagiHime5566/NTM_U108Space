@@ -1300,7 +1300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1123192941
 Transform:
   m_ObjectHideFlags: 0
@@ -1491,7 +1491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1404711042
 Transform:
   m_ObjectHideFlags: 0
@@ -7584,6 +7584,7 @@ MonoBehaviour:
   moveSpeed: 0.1
   Building: {fileID: 885173487}
   s6Controller: {fileID: 885173488}
+  scaleSpeed: 0.01
 --- !u!4 &1903363418
 Transform:
   m_ObjectHideFlags: 0
