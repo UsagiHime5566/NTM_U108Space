@@ -19,9 +19,11 @@ public class SignalServer : HimeLib.SingletonMono<SignalServer>
 
     [HimeLib.HelpBox] public string tip = "所有的訊息接編碼為UTF-8";
     public SocketSignalEvent OnSignalReceived;
+    public System.Action<byte[]> OnSignalReceivedByte;
 
     [Header("Auto Work")]
     public bool runInStart = false;
+    public bool useBytes = false;
 
 
     Socket serverSocket; //服務器端socket  
@@ -93,19 +95,32 @@ public class SignalServer : HimeLib.SingletonMono<SignalServer>
                 SocketConnet();
                 continue;
             }
-            //輸出接收到的數據  
-            string recvStr = Encoding.UTF8.GetString(recvData, 0, recvLen);
+            //輸出接收到的數據
 
-            //Recieve Data Will Be   245,135,90[/TCP]   , str 不會包含[/TCP]
-            string[] substrings = recvStr.Split(token, StringSplitOptions.None);  // => N , [/TCP]
-
-            if (substrings.Length > 1)
-            {
-                Debug.Log($"Server TCP >> Recieved : {substrings[0]}");
-
+            if(useBytes){
+                //byte[] 
+                
+                Debug.Log($"Server TCP >> Recieved : {recvData}");
                 ActionQueue += delegate {
-                    OnSignalReceived.Invoke(substrings[0]);
+                    OnSignalReceivedByte?.Invoke(recvData);
                 };
+
+            } else {
+
+
+                string recvStr = Encoding.UTF8.GetString(recvData, 0, recvLen);
+
+                //Recieve Data Will Be   245,135,90[/TCP]   , str 不會包含[/TCP]
+                string[] substrings = recvStr.Split(token, StringSplitOptions.None);  // => N , [/TCP]
+
+                if (substrings.Length > 1)
+                {
+                    Debug.Log($"Server TCP >> Recieved : {substrings[0]}");
+
+                    ActionQueue += delegate {
+                        OnSignalReceived.Invoke(substrings[0]);
+                    };
+                }
             }
         }
     }
@@ -176,6 +191,7 @@ public class SignalServer : HimeLib.SingletonMono<SignalServer>
 
     [EasyButtons.Button] void EmuSignalRecieve(){
         OnSignalReceived?.Invoke(signalForRecieved);
+        OnSignalReceivedByte?.Invoke(Encoding.UTF8.GetBytes(signalForRecieved));
     }
     [EasyButtons.Button] void EmuSignalSend(){
         SocketSend(signalForSend);
