@@ -1,13 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class Judge_S0 : JudgeBase
 {
     public Transform Building;
 
+    public VideoPlayer vp;
+
     void Start(){
         Building.localPosition = SystemConfig.Instance.GetData<Vector3>(SaveKey, Building.localPosition);
+        vp.targetTexture.Release();
+    }
+
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.P)){
+            vp.Play();
+        }
     }
 
     public override void VerticalJudge(int direct){

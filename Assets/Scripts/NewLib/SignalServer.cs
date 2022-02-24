@@ -171,7 +171,7 @@ public class SignalServer : MonoBehaviour
             //發送  
             clientSocket.Send(sendData, sendData.Length, SocketFlags.None);
 
-            Debug.Log ($"Server TCP >> Send: {sendStr}");
+            //Debug.Log ($"Server TCP >> Send: {sendStr}");
         }
         catch(System.Exception e){
             Debug.Log(e.Message.ToString());

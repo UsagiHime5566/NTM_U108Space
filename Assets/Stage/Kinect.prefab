@@ -117,7 +117,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 073b1ee561def20429e655b5c8893ad4, type: 2}
+  - {fileID: 2100000, guid: 2f7cd61bf5b0a8e47af5ce200a64647b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -162,6 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7053847811300158061}
+  - component: {fileID: 1675447818}
   m_Layer: 0
   m_Name: Kinect
   m_TagString: Untagged
@@ -186,3 +187,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675447818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9107621624357211048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2949a49be16054f44803c4099031108e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentFaceAngle: 90
+  pdata:
+    x: 0
+    y: 0

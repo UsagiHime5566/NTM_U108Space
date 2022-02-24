@@ -120,7 +120,7 @@ public class StageController : HimeLib.SingletonMono<StageController>
 
         yield return new WaitForSeconds(5);
 
-        sceneBGM.Play();
+        //sceneBGM.Play();
 
         while(true){
             if(Application.CanStreamedLevelBeLoaded(SceneList[SceneIndex])){
@@ -155,7 +155,7 @@ public class StageController : HimeLib.SingletonMono<StageController>
     IEnumerator DoStagePlay(){
         int SceneIndex = 0;
         yield return null;
-        sceneBGM.Play();
+        //sceneBGM.Play();
         float playTime = Time.realtimeSinceStartup;
 
         for (int i = 0; i < stage_names.Count; i++)

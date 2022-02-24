@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class PosManager : HimeLib.SingletonMono<PosManager>
 {
-   public SignalClient client;
-   public Action<List<PosData>> OnRecievePosData;
-    List<PosData> posList;
-    PosData minPos = new PosData();
+    public SignalClient client;
+    public Action<List<PosData>> OnRecievePosData;
+    public List<PosData> posList;
+    public PosData minPos = new PosData();
+    public float angleDelta;
     void Start()
     {
         client.OnSignalReceived.AddListener(RecieveData);
@@ -38,7 +39,7 @@ public class PosManager : HimeLib.SingletonMono<PosManager>
             }
 
             if(distance < 9999){
-                Debug.Log($">> {t.x}, {t.y}");
+                //Debug.Log($">> {t.x}, {t.y}");
                 
                 minPos = t;
 
@@ -48,5 +49,19 @@ public class PosManager : HimeLib.SingletonMono<PosManager>
             
             //Debug.Log(obj.data.Count);
         }
+    }
+    public float currentAtan;
+    public float GetCurrentAngle(){
+        float angle = Mathf.Atan2(minPos.y, minPos.x) * Mathf.Rad2Deg;
+        angle = angle + angleDelta;
+
+        currentAtan = angle;
+        
+        return angle;
+    }
+
+    [EasyButtons.Button]
+    void GetAtan(){
+        Debug.Log(Mathf.Atan2(minPos.y, minPos.x) * Mathf.Rad2Deg) ;
     }
 }
