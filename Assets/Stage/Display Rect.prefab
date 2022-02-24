@@ -26,11 +26,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612312162233454014}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: -0.5}
-  m_LocalPosition: {x: -0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 4.219469, y: 4.219469, z: 4.219469}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1828610443452219891}
+  m_Father: {fileID: 8159580238365756911}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -270}
 --- !u!33 &2286694133110171654
@@ -111,9 +111,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8540099231463980356}
-  - {fileID: 44022578416828768}
-  - {fileID: 2869540046111990078}
+  - {fileID: 8159580238365756911}
   m_Father: {fileID: 3394014018338061661}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -143,11 +141,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790302545528598804}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: -0.5}
-  m_LocalPosition: {x: -0, y: -2.9, z: 0}
+  m_LocalPosition: {x: 0, y: -2.9, z: 0}
   m_LocalScale: {x: 2.9, y: 2.9, z: 2.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1828610443452219891}
+  m_Father: {fileID: 8159580238365756911}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -270}
 --- !u!33 &2294436968454768059
@@ -226,11 +224,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2541156780111603762}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: -0.5}
-  m_LocalPosition: {x: -0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 5.1, y: 5.1, z: 5.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1828610443452219891}
+  m_Father: {fileID: 8159580238365756911}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -270}
 --- !u!33 &4437877088796380881
@@ -717,3 +715,37 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!1 &4101343260960601063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8159580238365756911}
+  m_Layer: 20
+  m_Name: Plane Output
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8159580238365756911
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4101343260960601063}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8540099231463980356}
+  - {fileID: 44022578416828768}
+  - {fileID: 2869540046111990078}
+  m_Father: {fileID: 1828610443452219891}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
