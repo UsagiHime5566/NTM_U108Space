@@ -4854,8 +4854,8 @@ MonoBehaviour:
   webService: https://script.google.com/macros/s/AKfycbzqeN5IrvPRqTXB-WjI7PrldsJFW1nK9fmobQcSxfd_LkrWZYcx/exec
   sheetID: 1qfiB-u9f5O-FMVHoCMTZ9gIDwbi5-NNWGGfRBjQE9ak
   Infos_PageID: 217242996
-  msg_y_min: 120
-  msg_y_max: 575
+  msg_y_min: 190
+  msg_y_max: 580
   msg_b_begin: 5500
   msg_liveTime: 60
   Prefab_txt: {fileID: 2905190546691494005, guid: 1cdc7a6cc87bf2049a38b04c1b92fc2a, type: 3}
@@ -8007,11 +8007,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8159580238365756911, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
 --- !u!1 &383047947 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1309235972033633097, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4101343260960601063, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
   m_PrefabInstance: {fileID: 383047946}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &383047948
@@ -8027,6 +8031,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spanTime: 240
+--- !u!4 &383047949 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1828610443452219891, guid: 4390849e82dcf7b41a04e237c6a45057, type: 3}
+  m_PrefabInstance: {fileID: 383047946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &385422654
 GameObject:
   m_ObjectHideFlags: 0
@@ -13991,6 +14000,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725633418}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &733049521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 733049522}
+  m_Layer: 20
+  m_Name: Particle Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &733049522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733049521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 383047949}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &736754458
 GameObject:
   m_ObjectHideFlags: 0
@@ -26393,6 +26433,54 @@ Transform:
   m_Father: {fileID: 709965648}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
+--- !u!1 &1163285189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1163285190}
+  - component: {fileID: 1163285191}
+  m_Layer: 0
+  m_Name: PassWalker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1163285190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163285189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4871038, y: -3.5806656, z: -50001.098}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1163285191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163285189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0b219ecaee8f042a536aafd4188c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab_particle: {fileID: 4934496319972415745, guid: 0c182ec4ca031d340b8ddd006091b44d, type: 3}
+  Prefab_parent: {fileID: 733049522}
+  x_scale: 5
+  y_scale: 5
 --- !u!115 &1163953674
 MonoScript:
   m_ObjectHideFlags: 0

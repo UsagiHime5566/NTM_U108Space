@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using UnityEngine.Events;
 using System.Threading.Tasks;
 
-public class SignalClient : HimeLib.SingletonMono<SignalClient> {
+public class SignalClient : MonoBehaviour {
     public string serverIP = "127.0.0.1";
     public int serverPort = 25568;
     public int recvBufferSize = 1024;
@@ -117,15 +117,21 @@ public class SignalClient : HimeLib.SingletonMono<SignalClient> {
             string responseData = System.Text.Encoding.UTF8.GetString(data, 0, bytes);
 
             //Recieve Data Will Be   245,135,90[/TCP]   , str 不會包含[/TCP]
-            string[] substrings = responseData.Split (token, StringSplitOptions.None);  // => 245,135,90
-
-            // rs,x,y
-            if (substrings.Length > 1) {
-                Debug.Log($"TCP >> Recieved : {substrings[0]}");
-
+            if(string.IsNullOrEmpty(token[0])){
                 ActionQueue += delegate {
-                    OnSignalReceived.Invoke(substrings[0]);
+                    OnSignalReceived.Invoke(responseData);
                 };
+            } else {
+                string[] substrings = responseData.Split (token, StringSplitOptions.None);  // => 245,135,90
+
+                // rs,x,y
+                if (substrings.Length > 1) {
+                    Debug.Log($"TCP >> Recieved : {substrings[0]}");
+
+                    ActionQueue += delegate {
+                        OnSignalReceived.Invoke(substrings[0]);
+                    };
+                }
             }
 		}
 	}

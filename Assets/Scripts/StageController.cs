@@ -203,3 +203,17 @@ public class StageController : HimeLib.SingletonMono<StageController>
         toFadeGroup.DOFade(0, fadeTime);
     }
 }
+
+
+[System.Serializable]
+public class PosDataBase
+{
+    public List<PosData> data;
+}
+
+[System.Serializable]
+public class PosData
+{
+    public float x;
+    public float y;
+}
