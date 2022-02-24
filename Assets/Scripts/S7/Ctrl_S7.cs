@@ -63,19 +63,4 @@ public class Ctrl_S7 : MonoBehaviour
         //Debug.Log(fullJson);
         return fullJson;
     }
-
-    [System.Serializable]
-    public class VideoListRoot
-    {
-        public List<VideoListData> videoListRoot;
-    }
-
-    [System.Serializable]
-    public class VideoListData
-    {
-        public string id;
-        public string uid;
-        public string type;
-        public string media_filename;
-    }
 }

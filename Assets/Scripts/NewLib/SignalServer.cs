@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,9 +35,14 @@ public class SignalServer : MonoBehaviour
 
     string buffString;
 
+
+    Queue<byte[]> datas;
+    MemoryStream ms = null;
+
     async void Start()
     {
         token = new string[]{ EndToken };
+        datas = new Queue<byte[]>();
 
         await Task.Delay(1000);
 
@@ -51,6 +57,13 @@ public class SignalServer : MonoBehaviour
         if(ActionQueue != null){
             ActionQueue?.Invoke();
             ActionQueue = null;
+        }
+
+        if(useBytes){
+            if(datas.Count > 0){
+                OnSignalReceivedByte?.Invoke(datas.Dequeue());
+                OnSignalReceivedByte = null;
+            }
         }
     }
 
@@ -103,10 +116,9 @@ public class SignalServer : MonoBehaviour
                 //byte[] 
                 
                 Debug.Log($"Server TCP >> Recieved : {recvData}");
-                ActionQueue += delegate {
-                    OnSignalReceivedByte?.Invoke(recvData);
-                };
 
+                ms = new MemoryStream(recvData, 0, recvLen);
+                datas.Enqueue(ms.ToArray());
             } else {
                 
                 if(ActionQueue != null)
@@ -150,7 +162,7 @@ public class SignalServer : MonoBehaviour
         //獲取客戶端的IP和端口  
         IPEndPoint ipEndClient = (IPEndPoint)clientSocket.RemoteEndPoint;
         //輸出客戶端的IP和端口  
-        Debug.Log("Server TCP >> Connect with " + ipEndClient.Address.ToString() + ":" + ipEndClient.Port.ToString());
+        Debug.Log($"({gameObject.name}) Server TCP >> Connect with " + ipEndClient.Address.ToString() + ":" + ipEndClient.Port.ToString());
 
         //連接成功則發送數據  
         //sendStr="Welcome to my server";
@@ -204,6 +216,7 @@ public class SignalServer : MonoBehaviour
 
     [EasyButtons.Button] void EmuSignalRecieve(){
         OnSignalReceived?.Invoke(signalForRecieved);
+        byte[] b = Encoding.UTF8.GetBytes(signalForRecieved);
         OnSignalReceivedByte?.Invoke(Encoding.UTF8.GetBytes(signalForRecieved));
     }
     [EasyButtons.Button] void EmuSignalSend(){

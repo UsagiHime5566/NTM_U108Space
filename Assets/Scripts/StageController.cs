@@ -37,16 +37,68 @@ public class StageController : HimeLib.SingletonMono<StageController>
     public List<string> stage_names;
     public List<float> stage_times;
 
+    [Header("Timer List")]
+    public List<TimePack> openList;
+    public List<TimePack> openListWeekend;
+    public List<TimePack> openListSpecial;
     
     //local params
     bool isStagePlay = false;
 
     void Start()
     {
-        if(AutoPlay){
-            StartCoroutine(DoAutoPlay());
-        } else {
-            StartCoroutine(EnterScene_0());
+        StartCoroutine(EnterScene_0());
+        
+    }
+
+    IEnumerator TimeTick(){
+        while (true)
+        {
+            System.DateTime date = System.DateTime.Now;
+            int hour = date.Hour;
+            int minute = date.Minute;
+            System.DayOfWeek dayType = date.DayOfWeek;
+            int month = date.Month;
+            int day = date.Day;
+
+            foreach (var pack in openList)
+            {
+                if(isStagePlay)
+                    break;
+
+                if(hour == pack.hour && minute == pack.minute){
+                    Debug.Log($"Do Play at :{date}");
+                    StartStagePlay();
+                    break;
+                }
+            }
+
+            foreach (var pack in openListWeekend)
+            {
+                if(isStagePlay)
+                    break;
+
+                if(hour == pack.hour && minute == pack.minute && (dayType == System.DayOfWeek.Saturday || dayType == System.DayOfWeek.Sunday)){
+                    Debug.Log($"Do Play at :{date}");
+                    StartStagePlay();
+                    break;
+                }
+            }
+            
+            foreach (var pack in openListSpecial)
+            {
+                if(isStagePlay)
+                    break;
+
+                if(hour == pack.hour && minute == pack.minute && month == 2 && day == 26){
+                    Debug.Log($"Do Play at :{date}");
+                    StartStagePlay();
+                    break;
+                }
+            }
+            
+            //Debug.Log($"now is {day}day , {hour}/{minute}");
+            yield return new WaitForSeconds(1);
         }
     }
 
@@ -114,13 +166,13 @@ public class StageController : HimeLib.SingletonMono<StageController>
         }
     }
 
-    IEnumerator DoAutoPlay(){
+    IEnumerator DoCheckPlay(){
         List<string> SceneList = new List<string>(){Scene_1, Scene_2, Scene_3, Scene_4, Scene_5, Scene_6, Scene_7, Scene_8, Scene_9, Scene_10 };
         int SceneIndex = 0;
 
         yield return new WaitForSeconds(5);
 
-        //sceneBGM.Play();
+        sceneBGM.Play();
 
         while(true){
             if(Application.CanStreamedLevelBeLoaded(SceneList[SceneIndex])){
@@ -140,6 +192,7 @@ public class StageController : HimeLib.SingletonMono<StageController>
         yield return null;
         isStagePlay = false;
 
+        StartCoroutine(TimeTick());
         Debug.Log("Ready to Play Stages");
     }
 
@@ -155,7 +208,7 @@ public class StageController : HimeLib.SingletonMono<StageController>
     IEnumerator DoStagePlay(){
         int SceneIndex = 0;
         yield return null;
-        //sceneBGM.Play();
+        sceneBGM.Play();
         float playTime = Time.realtimeSinceStartup;
 
         for (int i = 0; i < stage_names.Count; i++)
@@ -217,3 +270,28 @@ public class PosData
     public float x;
     public float y;
 }
+
+
+
+[System.Serializable]
+public class TimePack
+{
+    public int hour;
+    public int minute;
+}
+
+
+[System.Serializable]
+    public class VideoListRoot
+    {
+        public List<VideoListData> videoListRoot;
+    }
+
+    [System.Serializable]
+    public class VideoListData
+    {
+        public string id;
+        public string uid;
+        public string type;
+        public string media_filename;
+    }

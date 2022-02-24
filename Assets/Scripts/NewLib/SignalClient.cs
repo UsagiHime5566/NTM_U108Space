@@ -44,7 +44,12 @@ public class SignalClient : MonoBehaviour {
 
     void Update(){
         if(ActionQueue != null){
-            ActionQueue?.Invoke();
+            try {
+                ActionQueue?.Invoke();
+                }
+            catch( System.Exception e) {
+
+            }
             ActionQueue = null;
         }
     }
@@ -126,7 +131,7 @@ public class SignalClient : MonoBehaviour {
 
                 // rs,x,y
                 if (substrings.Length > 1) {
-                    Debug.Log($"TCP >> Recieved : {substrings[0]}");
+                    //Debug.Log($"TCP >> Recieved : {substrings[0]}");
 
                     ActionQueue += delegate {
                         OnSignalReceived.Invoke(substrings[0]);

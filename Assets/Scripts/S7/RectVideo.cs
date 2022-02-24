@@ -20,8 +20,13 @@ public class RectVideo : MonoBehaviour
         videoPlayer.url = _url;
         videoPlayer.Prepare();
 
-        RenderTexture rt = new RenderTexture(300, 200, 0);
+        RenderTexture rt = new RenderTexture(720, 960, 0);
         videoPlayer.targetTexture = rt;
         show.texture = rt;
+    }
+
+    private void OnValidate() {
+        show = GetComponent<RawImage>();
+        videoPlayer = GetComponent<VideoPlayer>();
     }
 }
