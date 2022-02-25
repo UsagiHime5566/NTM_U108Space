@@ -162,7 +162,7 @@ public class SignalServer : MonoBehaviour
         //獲取客戶端的IP和端口  
         IPEndPoint ipEndClient = (IPEndPoint)clientSocket.RemoteEndPoint;
         //輸出客戶端的IP和端口  
-        Debug.Log($"({gameObject.name}) Server TCP >> Connect with " + ipEndClient.Address.ToString() + ":" + ipEndClient.Port.ToString());
+        Debug.Log($"Server TCP >> Connect with " + ipEndClient.Address.ToString() + ":" + ipEndClient.Port.ToString());
 
         //連接成功則發送數據  
         //sendStr="Welcome to my server";

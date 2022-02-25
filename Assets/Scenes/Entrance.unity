@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.3369, g: 325.0498, b: 430.21924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -855,7 +855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6990578980410299714, guid: 094d7fb0e9a3ec046bfe76ee977e70f3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6990578982038592481, guid: 094d7fb0e9a3ec046bfe76ee977e70f3, type: 3}
       propertyPath: m_RootOrder
@@ -1169,6 +1169,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0204c3e7a3d4bbd4e972f39f7674db58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1691739924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1691739925}
+  - component: {fileID: 1691739926}
+  - component: {fileID: 1691739927}
+  m_Layer: 0
+  m_Name: PointCloudServer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1691739925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691739924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 575404619}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1691739926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691739924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df9692d28300814381469020043f4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serverPort: 25555
+  recvBufferSize: 2048
+  EndToken: '[/TCP]'
+  tip: "\u6240\u6709\u7684\u8A0A\u606F\u63A5\u7DE8\u78BC\u70BAUTF-8"
+  OnSignalReceived:
+    m_PersistentCalls:
+      m_Calls: []
+  runInStart: 1
+  useBytes: 1
+  signalForRecieved: 
+  signalForSend: 
+--- !u!114 &1691739927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691739924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481ab528e422b0b45b5aef801abc8c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  server: {fileID: 1691739926}
+  target: {fileID: 8400000, guid: d8e773d5bbad0c05c965e6b888e86b55, type: 2}
 --- !u!1 &1786751234 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6990578980410299714, guid: 094d7fb0e9a3ec046bfe76ee977e70f3, type: 3}
@@ -1318,7 +1388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1839062430
 Transform:
   m_ObjectHideFlags: 0
