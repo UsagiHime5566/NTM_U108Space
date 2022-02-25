@@ -9,6 +9,7 @@ public class S0_PassWalker : MonoBehaviour
 
     public float x_scale = 5;
     public float y_scale = 5;
+    public int maxEffectCount = 50;
     
     void Start()
     {
@@ -26,7 +27,9 @@ public class S0_PassWalker : MonoBehaviour
     void ShowPos(List<PosData> posData){
         foreach (var v in posData)
         {
-
+            if(Prefab_parent.childCount > maxEffectCount)
+                break;
+                
             var temp = Instantiate(Prefab_particle, Prefab_parent);
             temp.transform.localPosition = ConvertToScenePos(v.x, v.y);
             

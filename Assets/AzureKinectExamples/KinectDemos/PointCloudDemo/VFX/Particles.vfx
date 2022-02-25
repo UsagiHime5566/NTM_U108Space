@@ -159,9 +159,9 @@ MonoBehaviour:
   - title: Noise Field Scrolling
     position:
       serializedVersion: 2
-      x: 122
+      x: 69
       y: 1332
-      width: 484
+      width: 537
       height: 202
     contents:
     - model: {fileID: 8926484042661614867}
@@ -2361,7 +2361,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614849}
   - {fileID: 8926484042661614850}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661614846}
   m_MasterData:
@@ -2903,7 +2903,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614873}
   - {fileID: 8926484042661614874}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661614871}
   m_MasterData:
@@ -10572,7 +10572,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 147, y: 1413}
+  m_UIPosition: {x: 94, y: 1432}
   m_UICollapsed: 0
   m_UISuperCollapsed: 1
   m_InputSlots: []
