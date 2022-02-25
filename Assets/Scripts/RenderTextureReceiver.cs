@@ -11,7 +11,7 @@ public class RenderTextureReceiver : MonoBehaviour
     void Start()
     {
         server.OnSignalReceivedByte += x => {
-            Debug.Log($"Parse data length: {x.Length}");
+            //Debug.Log($"Parse data length: {x.Length}");
 
             Texture2D texture2D = new Texture2D(2,2);
             texture2D.LoadImage(x);

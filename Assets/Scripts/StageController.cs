@@ -47,8 +47,10 @@ public class StageController : HimeLib.SingletonMono<StageController>
 
     void Start()
     {
+        if(!AutoPlay)
+            return;
+            
         StartCoroutine(EnterScene_0());
-        
     }
 
     IEnumerator TimeTick(){

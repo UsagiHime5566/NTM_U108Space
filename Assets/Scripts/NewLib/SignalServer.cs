@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,6 +31,7 @@ public class SignalServer : MonoBehaviour
     Socket serverSocket; //服務器端socket  
     Socket clientSocket; //客戶端socket  
     string [] token;
+    byte [] tokenByte;
     Thread connectThread; //連接線程
     Action ActionQueue;
 
@@ -38,10 +40,12 @@ public class SignalServer : MonoBehaviour
 
     Queue<byte[]> datas;
     MemoryStream ms = null;
+    MemoryStream recvMs = new MemoryStream();
 
     async void Start()
     {
         token = new string[]{ EndToken };
+        tokenByte = Encoding.UTF8.GetBytes(EndToken); 
         datas = new Queue<byte[]>();
 
         await Task.Delay(1000);
@@ -57,13 +61,6 @@ public class SignalServer : MonoBehaviour
         if(ActionQueue != null){
             ActionQueue?.Invoke();
             ActionQueue = null;
-        }
-
-        if(useBytes){
-            if(datas.Count > 0){
-                OnSignalReceivedByte?.Invoke(datas.Dequeue());
-                OnSignalReceivedByte = null;
-            }
         }
     }
 
@@ -113,12 +110,41 @@ public class SignalServer : MonoBehaviour
             //輸出接收到的數據
 
             if(useBytes){
-                //byte[] 
-                
-                Debug.Log($"Server TCP >> Recieved : {recvData}");
+                //Debug.Log($"Server TCP >> Recieved : {recvLen} " + (char)recvData[recvLen-3] + (char)recvData[recvLen-2] + (char)recvData[recvLen-1]);
+                //ms = new MemoryStream(recvData, 0, recvLen);
+                //datas.Enqueue(ms.ToArray());
 
-                ms = new MemoryStream(recvData, 0, recvLen);
-                datas.Enqueue(ms.ToArray());
+                // bool check = true;
+                // for (int i = 0; i < EndToken.Length; i++)
+                // {
+                //     if(recvData[recvLen-1-i] != tokenByte[tokenByte.Length-1-i]){
+                //         check = false;
+                //         break;
+                //     }
+                // }
+                if(SearchPattern(recvData, tokenByte)){
+                    try {
+                        recvMs.Write(recvData, 0, recvLen - EndToken.Length);
+                        byte [] result = recvMs.ToArray();
+                        recvMs = new MemoryStream();
+                        ActionQueue += delegate {
+                            // MemoryStream ms = new MemoryStream();
+                            // for (int i = 0; i < datas.Count; i++)
+                            // {
+                            //     var b = datas.Dequeue();
+                            //     ms.Write(b, 0, b.Length);
+                            //     Debug.Log($"write byte {b.Length} , total {ms.Length}");
+                            // }
+                            OnSignalReceivedByte?.Invoke(result);
+                        };
+                    } catch {
+                        recvMs = new MemoryStream();
+                    };
+                    
+                } else {
+                    recvMs.Write(recvData, 0, recvLen);
+                }
+                
             } else {
                 
                 if(ActionQueue != null)
@@ -208,6 +234,17 @@ public class SignalServer : MonoBehaviour
         {
             serverSocket.Close();
         }
+    }
+
+    bool SearchPattern(byte[] source, byte[] pattern){
+        for (int i = 0; i < source.Length; i++)
+        {
+            if (source.Skip(i).Take(pattern.Length).SequenceEqual(pattern))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     [Header("Signal Emulor")]
