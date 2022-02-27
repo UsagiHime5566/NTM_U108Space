@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.044503726, g: 0.073303886, b: 0.23706141, a: 1}
+  m_IndirectSpecularColor: {r: 0.044533752, g: 0.0733079, b: 0.23721856, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4e9aad004eea0488b0754b1df7ff92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverURL: https://media.iottalktw.com
+  serverURL: http://192.168.50.77
   api_upload_Video: /api/face/upload/video
   api_upload_Image: /api/face/upload/image
   api_get_Video: /api/face/video

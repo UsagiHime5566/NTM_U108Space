@@ -1315,7 +1315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4e9aad004eea0488b0754b1df7ff92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverURL: https://media.iottalktw.com
+  serverURL: http://192.168.50.77
   api_upload_Video: /api/face/upload/video
   api_upload_Image: /api/face/upload/image
   api_get_Video: /api/face/video

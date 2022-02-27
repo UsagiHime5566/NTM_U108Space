@@ -41,13 +41,14 @@ public class CatchGoogle : MonoBehaviour
         string[][] csvTable = csvParser.Parse(csvFile);
 
         List<string> listMsg = new List<string>();
+        
         for (int i = 1; i < csvTable.Length; i++)
         {
             string m = csvTable[i][1];
 
             listMsg.Add(m);
         }
-
+        if(listMsg.Count - lastCount > 50) lastCount = listMsg.Count - 50;
         for (int i = lastCount; i < listMsg.Count; i++)
         {
             StartCoroutine(CreateMessage(listMsg[i]));
