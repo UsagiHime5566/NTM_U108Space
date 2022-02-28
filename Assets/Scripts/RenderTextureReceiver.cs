@@ -11,6 +11,8 @@ public class RenderTextureReceiver : MonoBehaviour
     Queue<Texture2D> texQueue;
     int maxQueueNum = 10;
 
+    bool isWriteFile = false;
+
     void Start()
     {
         texQueue = new Queue<Texture2D>();
@@ -24,11 +26,27 @@ public class RenderTextureReceiver : MonoBehaviour
             Graphics.Blit(texture2D, target);
             RenderTexture.active = null;
 
+            if(isWriteFile){
+                WriteFile(x);
+                isWriteFile = false;
+            }
+
             texQueue.Enqueue(texture2D);
             if(texQueue.Count > maxQueueNum){
                 var temp = texQueue.Dequeue();
                 Destroy(temp);
             }
         };
+    }
+
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.F12)){
+            isWriteFile = true;
+        }
+    }
+
+    void WriteFile(byte[] data){
+        var path = Application.dataPath + "/../output.jpg";
+        System.IO.File.WriteAllBytes(path, data);
     }
 }
