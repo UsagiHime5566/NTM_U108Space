@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-public class SignalServer : MonoBehaviour
+public class SignalServer : SignalUI
 {
     public int serverPort = 25568;
     public int recvBufferSize = 1024;
@@ -183,12 +183,14 @@ public class SignalServer : MonoBehaviour
 
         //控制台輸出偵聽狀態
         Debug.Log("Server TCP >> Waiting for a client");
+        toSet = "Server TCP >> Waiting for a client : " + serverPort;
         //一旦接受連接，創建一個客戶端  
         clientSocket = serverSocket.Accept();
         //獲取客戶端的IP和端口  
         IPEndPoint ipEndClient = (IPEndPoint)clientSocket.RemoteEndPoint;
         //輸出客戶端的IP和端口  
         Debug.Log($"Server TCP >> Connect with " + ipEndClient.Address.ToString() + ":" + ipEndClient.Port.ToString());
+        toSet = $"Server TCP >> Connect with " + ipEndClient.Address.ToString() + ":" + ipEndClient.Port.ToString();
 
         //連接成功則發送數據  
         //sendStr="Welcome to my server";

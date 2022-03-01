@@ -267,7 +267,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 8400000, guid: 6162dcf4250bf914d9809cd36aefa4cf, type: 2}
+      - m_Value: {fileID: 8400000, guid: 9e1fea7296c61e84384f101af938768c, type: 2}
         m_Name: SourceTexture2D
         m_Overridden: 1
     m_Bool:
@@ -380,7 +380,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 8400000, guid: 4d469f7bde028d24cba12873026f7930, type: 2}
+      - m_Value: {fileID: 8400000, guid: 9e1fea7296c61e84384f101af938768c, type: 2}
         m_Name: SourceTexture2D
         m_Overridden: 1
     m_Bool:
@@ -910,7 +910,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 8400000, guid: 4a003ac88b3b3554385af9cf8c68bfa8, type: 2}
+      - m_Value: {fileID: 8400000, guid: 9e1fea7296c61e84384f101af938768c, type: 2}
         m_Name: SourceTexture2D
         m_Overridden: 1
     m_Bool:
@@ -1223,7 +1223,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 8400000, guid: 21ff7922cd52c9b4686b8410e8677367, type: 2}
+      - m_Value: {fileID: 8400000, guid: 9e1fea7296c61e84384f101af938768c, type: 2}
         m_Name: SourceTexture2D
         m_Overridden: 1
     m_Bool:
@@ -1336,7 +1336,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 8400000, guid: aa5210ef7c76b344cbab85f6f75abf90, type: 2}
+      - m_Value: {fileID: 8400000, guid: 9e1fea7296c61e84384f101af938768c, type: 2}
         m_Name: SourceTexture2D
         m_Overridden: 1
     m_Bool:

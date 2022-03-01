@@ -48,7 +48,7 @@ public class UserVideoManager : HimeLib.SingletonMono<UserVideoManager>
 
     private IEnumerator LoadVideoFromThisURL(string fileName, string fullUrl, System.Action<string> callback)
     {
-        string _pathToFile = Path.Combine (PathFolder, $"{fileName}.mp4");
+        string _pathToFile = Path.Combine (PathFolder, fileName);
 
         if(IsPathFileExist(_pathToFile)){
             callback?.Invoke(_pathToFile);

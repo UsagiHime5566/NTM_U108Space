@@ -163,28 +163,44 @@ public class StageController : HimeLib.SingletonMono<StageController>
             StartStagePlay();
         }
 
+        if(Input.GetKeyDown(KeyCode.Home)){
+            StartCheckPlay();
+        }
+
         if(Input.GetKeyDown(KeyCode.Escape)){
             Application.Quit();
         }
+    }
+
+    void StartCheckPlay(){
+        if(isStagePlay)
+            return;
+        
+        stage_names = new List<string>(){Scene_1, Scene_2, Scene_3, Scene_4, Scene_5, Scene_6, Scene_7, Scene_8, Scene_9, Scene_10 };
+        isStagePlay = true;
+        StartCoroutine(DoCheckPlay());
     }
 
     IEnumerator DoCheckPlay(){
         List<string> SceneList = new List<string>(){Scene_1, Scene_2, Scene_3, Scene_4, Scene_5, Scene_6, Scene_7, Scene_8, Scene_9, Scene_10 };
         int SceneIndex = 0;
 
-        yield return new WaitForSeconds(5);
-
         sceneBGM.Play();
 
-        while(true){
+        for (int i = 0; i < SceneList.Count; i++)
+        {
             if(Application.CanStreamedLevelBeLoaded(SceneList[SceneIndex])){
+                Debug.Log($"Play Stage ({SceneIndex}) and wait {AutoPlayDelay} seconds to next.");
                 GoStage(SceneList[SceneIndex]);
                 yield return new WaitForSeconds(AutoPlayDelay);
             }
-                
+
             yield return null;
             SceneIndex = ( SceneIndex + 1 ) % SceneList.Count;
         }
+
+        sceneBGM.Stop();
+        isStagePlay = false;
     }
 
     IEnumerator EnterScene_0(){
@@ -218,7 +234,7 @@ public class StageController : HimeLib.SingletonMono<StageController>
             SceneIndex = i;
             GoStage(stage_names[SceneIndex]);
             
-            Debug.Log($"Play Stage in {stage_times[SceneIndex]} seconds.");
+            Debug.Log($"Play Stage ({SceneIndex}) and wait {stage_times[SceneIndex]} seconds to next.");
             yield return new WaitForSeconds(stage_times[SceneIndex]);
         }
 

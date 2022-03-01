@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using UnityEngine.Events;
 using System.Threading.Tasks;
 
-public class SignalClient : MonoBehaviour {
+public class SignalClient : SignalUI {
     public string serverIP = "127.0.0.1";
     public int serverPort = 25568;
     public int recvBufferSize = 1024;
@@ -70,7 +70,8 @@ public class SignalClient : MonoBehaviour {
             }
             catch (Exception e)
             {
-                Debug.LogError("Socket error: " + e);
+                Debug.LogError($"Socket error ({serverIP}:{serverPort}): " + e);
+                toSet = $"Socket error ({serverIP}:{serverPort}): " + e.Message.ToString();
                 connect = false;
             }
         });
@@ -85,6 +86,7 @@ public class SignalClient : MonoBehaviour {
         connectThread.Start ();
 
         Debug.Log ($"Connect to Server ({serverIP}) at port :" + serverPort);
+        toSet = $"Connect to Server ({serverIP}) at port :" + serverPort;
 	}
 
 
@@ -160,16 +162,16 @@ public class SignalClient : MonoBehaviour {
 
 	public void CloseSocket()
 	{
+        netStream?.Close();
+	    tcpSocket?.Close();
+
         if(connectThread != null)
         {
             connectThread.Interrupt();
 			connectThread.Abort ();
         }
 
-        netStream?.Close();
-		tcpSocket?.Close();
-
-        print("diconnect.");
+        print("Client Diconnect.");
 	}
 
     public async void RestartSocket(){
