@@ -102,7 +102,7 @@ public class NetworkManager : HimeLib.SingletonMono<NetworkManager>
         if (request.isNetworkError || request.isHttpError){
             Debug.Log("Network error has occured: " + request.GetResponseHeader(""));
         } else {
-            Debug.Log("Success: " + request.downloadHandler.text);
+            Debug.Log("Success: " + url);
             
             callback?.Invoke(request.downloadHandler.text);
         }
