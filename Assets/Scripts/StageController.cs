@@ -199,6 +199,8 @@ public class StageController : HimeLib.SingletonMono<StageController>
             SceneIndex = ( SceneIndex + 1 ) % SceneList.Count;
         }
 
+        GoStage(Scene_0);
+        yield return new WaitForSeconds(1);
         sceneBGM.Stop();
         isStagePlay = false;
     }
@@ -259,7 +261,7 @@ public class StageController : HimeLib.SingletonMono<StageController>
 
     async void GoStage(string sceneName){
         await FireFadeEffect(() => {
-            SceneManager.LoadSceneAsync(sceneName);
+            SceneManager.LoadScene(sceneName);
         });
     }
 
