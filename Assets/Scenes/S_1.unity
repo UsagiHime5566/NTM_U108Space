@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.3369, g: 325.0498, b: 430.21924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5779,7 +5779,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368589456}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: d1959cf7c937df9478b8104134b6d20a, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 11382eb7a7bee224d98472ba5960f376, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -5819,8 +5819,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368589456}
   m_LocalRotation: {x: 0, y: 0.70710677, z: 0.70710677, w: 0}
-  m_LocalPosition: {x: 0.45, y: 0.6, z: 1.5}
-  m_LocalScale: {x: 0.18, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0.5, y: 0.7, z: 1.5}
+  m_LocalScale: {x: 0.18, y: 0.1, z: 0.18}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5833,6 +5833,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 35917138665747447, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: runInStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7053847811300158061, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -5880,6 +5884,10 @@ PrefabInstance:
     - target: {fileID: 9107621624357211048, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
       propertyPath: m_Name
       value: Kinect
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107621624357211048, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f552eb79ce80af4eb1515ffde80d8d2, type: 3}

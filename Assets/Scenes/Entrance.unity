@@ -260,6 +260,70 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 227500483}
   m_Enabled: 1
+--- !u!1 &287872929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 287872930}
+  - component: {fileID: 287872932}
+  - component: {fileID: 287872931}
+  m_Layer: 0
+  m_Name: UserVideoManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &287872930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287872929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 292779304}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &287872931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287872929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4e9aad004eea0488b0754b1df7ff92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serverURL: http://192.168.50.77
+  api_upload_Video: /api/face/upload/video
+  api_upload_Image: /api/face/upload/image
+  api_get_Video: /api/face/video
+  api_get_Image: /api/face/image
+--- !u!114 &287872932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287872929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe3d32a7041a7841a04263e4d9c28d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkManager: {fileID: 287872931}
+  catchPeriod: 60
 --- !u!1 &292779303
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,6 +359,7 @@ Transform:
   - {fileID: 436505099}
   - {fileID: 1873242326}
   - {fileID: 227500484}
+  - {fileID: 287872930}
   - {fileID: 575404619}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1171,7 +1236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6990578982038592481, guid: 094d7fb0e9a3ec046bfe76ee977e70f3, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6990578982038592481, guid: 094d7fb0e9a3ec046bfe76ee977e70f3, type: 3}
       propertyPath: m_LocalPosition.x

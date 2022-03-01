@@ -17,11 +17,13 @@ public class S0_PassWalker : MonoBehaviour
     }
 
     private void OnEnable() {
-        PosManager.instance.OnRecievePosData += ShowPos;
+        if(PosManager.instance)
+            PosManager.instance.OnRecievePosData += ShowPos;
     }
 
     private void OnDisable() {
-        PosManager.instance.OnRecievePosData -= ShowPos;
+        if(PosManager.instance)
+            PosManager.instance.OnRecievePosData -= ShowPos;
     }
 
     void ShowPos(List<PosData> posData){

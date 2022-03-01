@@ -31,36 +31,14 @@ public class Ctrl_S7 : MonoBehaviour
                 Vector2 randPos = new Vector2(Random.Range(-rect_x,rect_x), Random.Range(rect_y_min, rect_y_max));
                 var temp = Instantiate(Prefab_rect, VideoParent);
                 temp.GetComponent<RectTransform>().anchoredPosition = randPos;
-
-                GetRandomVideo((x) => {
+                UserVideoManager.instance.GetRandomVideoUrl(x => {
                     temp.SetupVideo(x);
-                    Destroy(temp.gameObject, AliveTime);
                 });
+
+                Destroy(temp.gameObject, AliveTime);
             }
             
             yield return new WaitForSeconds(CreateDelay);;
         }
-    }
-
-    public void GetRandomVideo(System.Action<string> callback){
-        string geturl = NetworkManager.instance.serverURL + NetworkManager.instance.api_upload_Video;
-
-        NetworkManager.instance.API_GetURL(geturl, x => {
-            var temp = JsonUtility.FromJson<VideoListRoot>(JsonWithParent(x));
-            //Debug.Log(temp);
-            //Debug.Log(temp.videoListRoot);
-
-            string targetUrl = temp.videoListRoot[Random.Range(0, temp.videoListRoot.Count)].media_filename;
-
-            string fullUrl = NetworkManager.instance.API_GetMedia(targetUrl);
-
-            callback?.Invoke(fullUrl);
-        });
-    }
-
-    string JsonWithParent(string json){
-        var fullJson = "{\"videoListRoot\":" + json + "}";
-        //Debug.Log(fullJson);
-        return fullJson;
     }
 }
