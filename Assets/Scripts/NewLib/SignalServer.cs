@@ -122,27 +122,34 @@ public class SignalServer : SignalUI
                 //         break;
                 //     }
                 // }
-                if(SearchPattern(recvData, tokenByte)){
-                    try {
-                        recvMs.Write(recvData, 0, recvLen - EndToken.Length);
-                        byte [] result = recvMs.ToArray();
-                        recvMs = new MemoryStream();
-                        ActionQueue += delegate {
-                            // MemoryStream ms = new MemoryStream();
-                            // for (int i = 0; i < datas.Count; i++)
-                            // {
-                            //     var b = datas.Dequeue();
-                            //     ms.Write(b, 0, b.Length);
-                            //     Debug.Log($"write byte {b.Length} , total {ms.Length}");
-                            // }
-                            OnSignalReceivedByte?.Invoke(result);
+
+                try {
+                    if(SearchPattern(recvData, tokenByte)){
+                        try {
+                            recvMs.Write(recvData, 0, recvLen - EndToken.Length);
+                            byte [] result = recvMs.ToArray();
+                            recvMs = new MemoryStream();
+                            ActionQueue += delegate {
+                                // MemoryStream ms = new MemoryStream();
+                                // for (int i = 0; i < datas.Count; i++)
+                                // {
+                                //     var b = datas.Dequeue();
+                                //     ms.Write(b, 0, b.Length);
+                                //     Debug.Log($"write byte {b.Length} , total {ms.Length}");
+                                // }
+                                OnSignalReceivedByte?.Invoke(result);
+                            };
+                        } catch (System.Exception e) {
+                            recvMs = new MemoryStream();
+                            Debug.Log(e.Message);
                         };
-                    } catch {
-                        recvMs = new MemoryStream();
-                    };
-                    
-                } else {
-                    recvMs.Write(recvData, 0, recvLen);
+                        
+                    } else {
+                        recvMs.Write(recvData, 0, recvLen);
+                    }
+                } catch (System.Exception e){
+                    recvMs = new MemoryStream();
+                    Debug.Log(e.Message);
                 }
                 
             } else {
