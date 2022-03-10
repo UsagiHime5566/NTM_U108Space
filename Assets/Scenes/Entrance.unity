@@ -447,7 +447,7 @@ MonoBehaviour:
   fadeTime: 0.7
   LoadingBuffTime: 1
   AutoPlay: 1
-  PresantationMode: 0
+  PresantationMode: 1
   AutoPlayDelay: 30
   Scene_0: S_0
   Scene_1: S_1
