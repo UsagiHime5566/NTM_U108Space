@@ -20,6 +20,7 @@ public class StageController : HimeLib.SingletonMono<StageController>
 
     [Header("Auto Mode")]
     public bool AutoPlay;
+    public bool PresantationMode = false;
     public float AutoPlayDelay = 30;
 
     [Header("Scene Params")]
@@ -212,8 +213,10 @@ public class StageController : HimeLib.SingletonMono<StageController>
         yield return null;
         isStagePlay = false;
 
-        StartCoroutine(TimeTick());
-        Debug.Log("Ready to Play Stages");
+        if(!PresantationMode){
+            StartCoroutine(TimeTick());
+            Debug.Log("Ready to Play Stages");
+        }
     }
 
     void StartStagePlay(){
@@ -228,7 +231,9 @@ public class StageController : HimeLib.SingletonMono<StageController>
     IEnumerator DoStagePlay(){
         int SceneIndex = 0;
         yield return null;
-        sceneBGM.Play();
+        if(!PresantationMode){
+            sceneBGM.Play();
+        }
         float playTime = Time.realtimeSinceStartup;
 
         for (int i = 0; i < stage_names.Count; i++)

@@ -20,7 +20,9 @@ public class S0_Rotate : MonoBehaviour
 
     void Update(){
         if(Input.GetKeyDown(KeyCode.M)){
-            if(isClick) return;
+            if(tweener != null){
+                tweener.Kill();
+            }
             tweener = transform.DOLocalRotate(new Vector3(0, 360, 0), spanTime, RotateMode.FastBeyond360 ).SetLoops(-1, LoopType.Restart).SetEase(Ease.Linear);
             //isClick = true;
         }

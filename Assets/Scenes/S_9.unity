@@ -817,6 +817,10 @@ PrefabInstance:
       propertyPath: drawMesh
       value: 
       objectReference: {fileID: 1170326020}
+    - target: {fileID: 6237703719959367310, guid: bdccd05acb620c14798e61f666bfcb40, type: 3}
+      propertyPath: overrideDeviceName
+      value: OBS-Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 6237703719959367311, guid: bdccd05acb620c14798e61f666bfcb40, type: 3}
       propertyPath: m_Pivot.x
       value: 0

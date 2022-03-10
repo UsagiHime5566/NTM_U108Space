@@ -21,6 +21,7 @@ public class ScriptsCamera : MonoBehaviour
 
     [Header("Windwos")]
     [Tooltip("系統要選用哪一個像機號碼")] public int WebcamIndex;
+    public string overrideDeviceName = "";
     [Tooltip("系統啟動後會將所有的像機列表在此")] public List<string> WebcamList;
     [Tooltip("顯示器畫面是不是橫放，若是PC的話，通常都是橫放(畫面寬大於高)")] public bool isLandscape;
     [Tooltip("手機的相機根據設備都會轉角度，但PC的不會，若PC要模擬像機轉角度，將角度填入此處")] public float CameraRot;
@@ -82,7 +83,11 @@ public class ScriptsCamera : MonoBehaviour
                     Debug.Log($"Find Device {i} / {devices[i].name}");
                 }
 
-                webcamTexture = new WebCamTexture(devices[WebcamIndex].name, Screen.width, Screen.height);
+                if(string.IsNullOrEmpty(overrideDeviceName)){
+                    webcamTexture = new WebCamTexture(devices[WebcamIndex].name, Screen.width, Screen.height);
+                } else {
+                    webcamTexture = new WebCamTexture(overrideDeviceName, Screen.width, Screen.height);
+                }
                 Debug.Log($"Use Webcam : {devices[WebcamIndex].name}");
             #else
                 for (int i = 0; i < devices.Length; i++)

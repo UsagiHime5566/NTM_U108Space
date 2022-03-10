@@ -17709,6 +17709,24 @@ Transform:
   m_Father: {fileID: 1895779427}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
+--- !u!1 &970383072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5514359854302293755, guid: 696c86fa11d9c664489c960fe5ac26ea, type: 3}
+  m_PrefabInstance: {fileID: 7630638319671154752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &970383078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970383072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2abc6c728e53484ca90b58b27942719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  japanView: {fileID: 1093573720}
 --- !u!1 &977179673
 GameObject:
   m_ObjectHideFlags: 0
@@ -20595,6 +20613,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086621502}
   m_Mesh: {fileID: 419040303004339475, guid: b7780260c7b65414abf24b32422df5cf, type: 3}
+--- !u!114 &1093573720 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5514359854617434704, guid: 696c86fa11d9c664489c960fe5ac26ea, type: 3}
+  m_PrefabInstance: {fileID: 7630638319671154752}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1097009909
 GameObject:
   m_ObjectHideFlags: 0
@@ -45086,7 +45115,15 @@ PrefabInstance:
     - target: {fileID: 5514359854302293750, guid: 696c86fa11d9c664489c960fe5ac26ea, type: 3}
       propertyPath: drawMesh
       value: 
-      objectReference: {fileID: 23321673350885473}
+      objectReference: {fileID: 0}
+    - target: {fileID: 5514359854302293750, guid: 696c86fa11d9c664489c960fe5ac26ea, type: 3}
+      propertyPath: runInStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5514359854302293750, guid: 696c86fa11d9c664489c960fe5ac26ea, type: 3}
+      propertyPath: overrideDeviceName
+      value: USB Video
+      objectReference: {fileID: 0}
     - target: {fileID: 5514359854302293751, guid: 696c86fa11d9c664489c960fe5ac26ea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -45174,6 +45211,10 @@ PrefabInstance:
     - target: {fileID: 5514359854302293755, guid: 696c86fa11d9c664489c960fe5ac26ea, type: 3}
       propertyPath: m_Name
       value: Canvas - Webcame Chat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5514359854617434705, guid: 696c86fa11d9c664489c960fe5ac26ea, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696c86fa11d9c664489c960fe5ac26ea, type: 3}
@@ -45472,6 +45513,10 @@ PrefabInstance:
       propertyPath: drawMesh
       value: 
       objectReference: {fileID: 23321673350885473}
+    - target: {fileID: 6237703719959367310, guid: bdccd05acb620c14798e61f666bfcb40, type: 3}
+      propertyPath: overrideDeviceName
+      value: OBS-Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 6237703719959367311, guid: bdccd05acb620c14798e61f666bfcb40, type: 3}
       propertyPath: m_Pivot.x
       value: 0
