@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 6237703719959367308}
   - component: {fileID: 6237703719959367309}
   - component: {fileID: 6237703719959367298}
+  - component: {fileID: 4483732907206244799}
   - component: {fileID: 6237703719959367310}
   m_Layer: 5
   m_Name: Canvas - Webcame 360
@@ -192,6 +193,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4483732907206244799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237703719959367299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb09684aff222e469a77e387ea0703d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6237703719959367310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +223,7 @@ MonoBehaviour:
   drawMesh: {fileID: 0}
   C_Mode: 0
   WebcamIndex: 0
+  overrideDeviceName: 
   WebcamList: []
   isLandscape: 1
   CameraRot: 0
