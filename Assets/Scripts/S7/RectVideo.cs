@@ -18,6 +18,7 @@ public class RectVideo : MonoBehaviour
 
     public void SetupVideo(string _url){
         videoPlayer.url = _url;
+        videoPlayer.Stop();
         videoPlayer.Prepare();
 
         RenderTexture rt = new RenderTexture(720, 960, 0);
