@@ -10,12 +10,22 @@ public class RecieveDeviceRotate : MonoBehaviour
 
     public float baseY = -0.4f;
 
+    Vector3 targetPosition;
+
     private void OnEnable() {
         ReceiveArduino.instance.OnRecieveArduinoAngle += ParseData;
     }
 
     private void OnDisable() {
         ReceiveArduino.instance.OnRecieveArduinoAngle -= ParseData;
+    }
+
+    void Start(){
+        targetPosition = transform.position;
+    }
+
+    void Update(){
+        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
     }
 
 
@@ -26,6 +36,7 @@ public class RecieveDeviceRotate : MonoBehaviour
         runDis = runDis + baseX;
         if(runDis > maxX) runDis = runDis - range;
 
-        transform.position = new Vector3(runDis, baseY, 0);
+        //transform.position = new Vector3(runDis, baseY, 0);
+        targetPosition = new Vector3(runDis, baseY, 0);
     }
 }

@@ -401,7 +401,6 @@ GameObject:
   m_Component:
   - component: {fileID: 292779304}
   - component: {fileID: 292779305}
-  - component: {fileID: 292779306}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -517,18 +516,6 @@ MonoBehaviour:
     minute: 5
   - hour: 19
     minute: 34
---- !u!114 &292779306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292779303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da32b1b92a63c3348939a2b989897cc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &313765949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,7 +1351,7 @@ PrefabInstance:
       objectReference: {fileID: 982248095}
     - target: {fileID: 6990578982396783972, guid: 094d7fb0e9a3ec046bfe76ee977e70f3, type: 3}
       propertyPath: runInStart
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6990578982396783973, guid: 094d7fb0e9a3ec046bfe76ee977e70f3, type: 3}
       propertyPath: minPos.x
@@ -2246,6 +2233,7 @@ GameObject:
   - component: {fileID: 1624026221}
   - component: {fileID: 1624026220}
   - component: {fileID: 1624026219}
+  - component: {fileID: 1624026222}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -2302,6 +2290,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0204c3e7a3d4bbd4e972f39f7674db58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1624026222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624026217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da32b1b92a63c3348939a2b989897cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1691739924

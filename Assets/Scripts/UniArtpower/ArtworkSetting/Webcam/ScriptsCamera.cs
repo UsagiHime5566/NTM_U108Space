@@ -15,6 +15,7 @@ public class ScriptsCamera : MonoBehaviour
 
     [Header("Webcam Input Infos")]
     [Tooltip("要附加的UI物件")] public RawImage drawPixels;
+    public MeshRenderer drawMesh;
     [Tooltip("縮放模式，擴張到'滿版'或是縮小至'全部都看的到'")] public AspectMode C_Mode;
 
 
@@ -54,6 +55,10 @@ public class ScriptsCamera : MonoBehaviour
         if(runInStart)
             StartWebcam(null);
     }
+
+    void OnDisable() {
+        StopWebcam();
+    }
     
     void OnApplicationQuit() {
         StopWebcam();
@@ -72,8 +77,10 @@ public class ScriptsCamera : MonoBehaviour
         if(webcamTexture == null)
         {
             #if UNITY_STANDALONE_WIN
-                for (int i = 0; i < devices.Length; i++)
+                for (int i = 0; i < devices.Length; i++){
                     WebcamList.Add(devices[i].name);
+                    Debug.Log($"Find Device {i} / {devices[i].name}");
+                }
 
                 webcamTexture = new WebCamTexture(devices[WebcamIndex].name, Screen.width, Screen.height);
                 Debug.Log($"Use Webcam : {devices[WebcamIndex].name}");
@@ -108,6 +115,8 @@ public class ScriptsCamera : MonoBehaviour
         drawPixels.enabled = true;
         drawPixels.color = Color.white;
         drawPixels.texture = webcamTexture;
+        if(drawMesh)
+            drawMesh.material.mainTexture = webcamTexture;
         camAvailable = true;
 
         await Task.Yield();
