@@ -11,12 +11,14 @@ public class Judge_S0 : JudgeBase
 
     void Start(){
         Building.localPosition = SystemConfig.Instance.GetData<Vector3>(SaveKey, Building.localPosition);
-        vp.targetTexture.Release();
+        if(vp)
+            vp.targetTexture.Release();
     }
 
     void Update(){
         if(Input.GetKeyDown(KeyCode.P)){
-            vp.Play();
+            if(vp)
+                vp.Play();
         }
     }
 

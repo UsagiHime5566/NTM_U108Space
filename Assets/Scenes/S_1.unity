@@ -453,6 +453,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas 360
       objectReference: {fileID: 0}
+    - target: {fileID: 5166159818377519315, guid: b7ac721650be76343bc75901e80eb777, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5166159818377519319, guid: b7ac721650be76343bc75901e80eb777, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1025,6 +1029,10 @@ PrefabInstance:
     - target: {fileID: 644025183396043766, guid: 6bfc63a7930510a4caee30091205d8eb, type: 3}
       propertyPath: m_Name
       value: Monoscopic360
+      objectReference: {fileID: 0}
+    - target: {fileID: 644025183396043766, guid: 6bfc63a7930510a4caee30091205d8eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bfc63a7930510a4caee30091205d8eb, type: 3}
@@ -5886,6 +5894,10 @@ PrefabInstance:
     - target: {fileID: 6237703719959367299, guid: bdccd05acb620c14798e61f666bfcb40, type: 3}
       propertyPath: m_Name
       value: Canvas - Webcame 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237703719959367299, guid: bdccd05acb620c14798e61f666bfcb40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6237703719959367310, guid: bdccd05acb620c14798e61f666bfcb40, type: 3}
       propertyPath: drawMesh
